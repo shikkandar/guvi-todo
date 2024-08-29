@@ -6,7 +6,7 @@ const Form = () => {
 
   return (
     <div>
-       <Form>
+       <Form className="d-flex flex-col" >
             
             <Form.Group controlId="todoName">
             <Form.Control
