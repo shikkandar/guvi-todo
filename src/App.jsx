@@ -135,18 +135,6 @@ const App = () => {
       <Container>
         <h1 className="h3 text-center mt-3">My todo</h1>
         <>
-          <div style={{width:"100%"}} className="mt-5 container d-flex justify-content-center">
-            <Button
-            style={{width:"40%"}}
-              variant="success"
-              onClick={() => {
-                reset();
-                handleShow();
-              }}>
-              Add Task
-            </Button>
-          </div>
-
           <Modal
             show={show}
             onHide={handleClose}>
@@ -224,7 +212,19 @@ const App = () => {
           </select>
         </div>
       </div>
-
+      <div
+        style={{ width: "100%" }}
+        className="mt-5 container d-flex justify-content-center">
+        <Button
+          style={{ width: "90%", height: "50px" }}
+          variant="success"
+          onClick={() => {
+            reset();
+            handleShow();
+          }}>
+          Add Task
+        </Button>
+      </div>
       {/* Display todos */}
       <Container className="d-flex flex-wrap justify-content-center mt-4">
         {filteredTodos.map((data) => (
@@ -238,7 +238,7 @@ const App = () => {
                   data.status === "complete" ? "#FF964A" : "#D2D2D2",
               }}>
               <div className="d-flex justify-content-between">
-                <p>Name: {data.name}</p>
+                <p>{data.name}</p>
 
                 {data.status !== "complete" ? (
                   <Button
@@ -264,7 +264,7 @@ const App = () => {
                     Date: {data.date}
                   </p>
                   <p style={{ overflowWrap: "break-word", maxWidth: "100%" }}>
-                    Description: {data.description}
+                    Notes: {data.description}
                   </p>
                   <div className="align-self-end">
                     {data.status !== "complete" && (
